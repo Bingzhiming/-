@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br><br>
+<!--主体-->
+    <div class="col-md-offset-3 col-md-6">
+        <div style="border-bottom: 1px solid #d5d5d5">
+            <form class="form-horizontal" action="" method="post">
+                {{form.hidden_tag()}}
+                <div class="form-group">
+                    <label class="col-md-3 control-label">{{form.course.label}}</label>
+                    <div class="col-md-6">
+                        {{form.course(type="text",class="form-control")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">{{form.student.label}}</label>
+                    <div class="col-md-6">
+                        {{form.student(type="text",class="form-control")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">{{form.score.label}}</label>
+                    <div class="col-md-6">
+                        {{form.score(type="float",class="form-control")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-4">
+                        <input type="submit" class="btn btn-success" value="提交信息">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

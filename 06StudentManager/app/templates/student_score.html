@@ -1,0 +1,23 @@
+<html>
+<heal>
+    <title>成绩</title>
+</heal>
+<body>
+<table class="table table-striped" style="border: 1px solid #dbdbdb;margin-top: 5px">
+    <thead>
+    <td><b>课程名</b></td>
+    <td><b>学生</b></td>
+    <td><b>成绩</b></td>
+    <td><b>任课老师</b></td>
+    </thead>
+    {% for sc in scores %}
+        <tr>
+            <td>{{sc.course.name}}</td>
+            <td>{{sc.student.name}}</td>
+            <td>{{sc.score}}</td>
+            <td>{{sc.score.course.teacher.name}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

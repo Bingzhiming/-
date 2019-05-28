@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <a class="btn btn-success" href="{{url_for('.add_student')}}" style="margin-top: 5px">添加学生</a>
+            <table class="table table-striped" style="border: 1px solid #dbdbdb;margin-top: 5px">
+                <thead>
+                    <td><b>学号</b></td>
+                    <td><b>姓名</b></td>
+                    <td><b>邮箱</b></td>
+                    <td><b>班主任</b></td>
+                    <td><b>性别</b></td>
+                    <td><b>课程</b></td>
+                    <td><b>操作</b></td>
+                </thead>
+                {% for s in ss %}
+                <tr>
+                    <td>{{s.id}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.teacher.name}}</td>
+                    {% if s.sex %}
+                        <td>男</td>
+                    {% else %}
+                        <td>女</td>
+                    {% endif %}
+                    <td>
+                        <a href="{{url_for('.student_email',id=s.id)}}" class="label label-info">发送邮件</a>
+                        <a href="{{url_for('.edit_student',id=s.id)}}" class="label label-info">编辑</a>
+                        <a href="{{url_for('.delete_student',id=s.id)}}" class="label label-danger">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <nav style="text-align: center">
+                <ul class="pagination" style="margin-top: 0px">
+                    <li><a><span>&laquo;</span></a></li>
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a><span>&raquo;</span></a></li>
+                </ul>
+            </nav>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <title>教务管理系统</title>
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: white;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <span style="color:#3c763d">教务管理系统</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-ver">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="my-navbar-ver">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">社区</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">管理中心</a></li>
+                    <li><a href="#">校长</a></li>
+                </ul>
+        </div>
+    </div>
+</nav>
+
+<!--主体-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 manager-list-left">
+            <div class="list-group">
+                <a href="{{url_for('.teachers')}}" class="list-group-item list-group-item-success {{teacher_active}}" style="text-align: center;font-size: 16px;border-radius: 0px">教师管理</a>
+                <a href="{{url_for('.students')}}" class="list-group-item list-group-item-success {{student_active}}" style="text-align: center;font-size: 16px">学生管理</a>
+                <a href="{{url_for('.courses')}}" class="list-group-item list-group-item-success {{course_active}}" style="text-align: center;font-size: 16px">课程管理</a>
+                <a href="{{url_for('.scores')}}" class="list-group-item list-group-item-success {{score_active}}" style="text-align: center;font-size: 16px">成绩管理</a>
+            </div>
+            <div class="col-md-2 list-group" style="position: fixed;bottom: 0px;padding: 0px;margin-bottom: 0px;">
+                <a href="#" class="list-group-item list-group-item-success" style="text-align: center;font-size: 16px;border-radius: 0px">www.embsky.com</a>
+            </div>
+        </div>
+
+        <div class="col-md-offset-2 col-md-10" style="height:100%;background-color: whitesmoke;margin-top: -20px">
+           {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

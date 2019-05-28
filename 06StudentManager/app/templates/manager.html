@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <a class="btn btn-success" href="{{url_for('.add_teacher')}}" style="margin-top: 5px">添加老师</a>
+            <table class="table table-striped" style="border: 1px solid #dbdbdb;margin-top: 5px">
+                <thead>
+                    <td><b>id</b></td>
+                    <td><b>姓名</b></td>
+                    <td><b>邮箱</b></td>
+                    <td><b>性别</b></td>
+                    <td><b>操作</b></td>
+                </thead>
+                {% for t in ts %}
+                <tr>
+                    <td>{{t.id}}</td>
+                    <td>{{t.name}}</td>
+                    <td>{{t.email}}</td>
+                    {% if t.sex %}
+                        <td>男</td>
+                    {% else %}
+                        <td>女</td>
+                    {% endif %}
+                    <td>
+                        <a href="#" class="label label-success">详情</a>
+                        <a href="{{url_for('.edit_teacher',id=t.id)}}" class="label label-info">编辑</a>
+                        <a href="{{url_for('.delete_teacher',id=t.id)}}" class="label label-danger">删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <nav style="text-align: center">
+                <ul class="pagination" style="margin-top: 0px">
+                    <li><a><span>&laquo;</span></a></li>
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a><span>&raquo;</span></a></li>
+                </ul>
+            </nav>
+{% endblock %}
